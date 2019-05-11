@@ -5,10 +5,13 @@ import (
 	"time"
 
 	"github.com/mgleon08/led-clock/placeholder"
+	"github.com/inancgumus/screen"
 )
 
 func main() {
+	screen.Clear()
 	for {
+		screen.MoveTopLeft()
 		now := time.Now()
 		hour, min, sec := now.Hour(), now.Minute(), now.Second()
 
