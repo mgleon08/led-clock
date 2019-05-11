@@ -5,13 +5,12 @@ import (
 	"time"
 
 	"github.com/mgleon08/led-clock/placeholder"
-	"github.com/inancgumus/screen"
 )
 
 func main() {
-	screen.Clear()
+	fmt.Print("\033[2J")
 	for {
-		screen.MoveTopLeft()
+		fmt.Print("\033[H")
 		now := time.Now()
 		hour, min, sec := now.Hour(), now.Minute(), now.Second()
 
@@ -25,7 +24,7 @@ func main() {
 
 		for line := range clock[0] {
 			for index, digit := range clock {
-				if digit == placeholder.Colon && sec % 2 == 0 {
+				if digit == placeholder.Colon && sec%2 == 0 {
 					fmt.Print("   ", "  ")
 				} else {
 					fmt.Print(clock[index][line], "  ")
