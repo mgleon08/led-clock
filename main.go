@@ -24,8 +24,12 @@ func main() {
 		}
 
 		for line := range clock[0] {
-			for digit := range clock {
-				fmt.Print(clock[digit][line], "  ")
+			for index, digit := range clock {
+				if digit == placeholder.Colon && sec % 2 == 0 {
+					fmt.Print("   ", "  ")
+				} else {
+					fmt.Print(clock[index][line], "  ")
+				}
 			}
 			fmt.Println()
 		}
