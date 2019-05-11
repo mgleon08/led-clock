@@ -27,7 +27,7 @@ func main() {
 				if digit == placeholder.Colon && sec%2 == 0 {
 					fmt.Print("   ", "  ")
 				} else {
-					fmt.Print(clock[index][line], "  ")
+					fmt.Printf("\033[1;32m%v\033[m  ", clock[index][line])
 				}
 			}
 			fmt.Println()
